@@ -40,5 +40,17 @@ while True:
             else:
                 print(msg)
                 conn.send("I have received your message".encode(format))
+                vowels = "aeiouAEIOU"
+                total = 0
+                for i in msg:
+                    if i in vowels:
+                        total += 1
+                if total == 0:
+                    conn.send("Not enough vowels".encode(format))
+                elif total <= 2:
+                    conn.send("Enough".encode(format))
+                else:
+                    conn.send("Too many".encode(format))
+
     conn.close()
 
