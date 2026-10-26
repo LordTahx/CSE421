@@ -30,7 +30,7 @@ def msg_to_be_sent(msg):
 
 msg_to_be_sent(f"IP address of the client is {host_ip_address} and the device name is {hostname}")
 msg_to_be_sent("Apple")
-msg_to_be_sent("Proyas gay")
+msg_to_be_sent("Proyas")
 msg_to_be_sent("nandu kala para na")
 msg_to_be_sent(disconnected)
 

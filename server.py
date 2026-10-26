@@ -1,4 +1,5 @@
 import socket
+import threading
 port = 5000
 format = "utf-8"
 buffer = 16
@@ -21,8 +22,9 @@ print(server)
 server.listen()
 print("Server is listening")
 
-while True:
-    conn, addr = server.accept()
+#while True:
+    #conn, addr = server.accept()
+def helper(conn, addr):
     print("Connected to", addr)
     connected = True
 
@@ -53,4 +55,10 @@ while True:
                     conn.send("Too many".encode(format))
 
     conn.close()
+
+    while True:
+      conn, addr = server.accept()
+      thread = threading.Thread(target = helper, args = (conn, addr))
+      thread.start()
+
 
